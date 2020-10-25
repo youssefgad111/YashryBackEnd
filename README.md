@@ -29,22 +29,22 @@ Write a program that can price a cart of products, accept multiple products, com
         $ php artisan migrate
         $ php artisan db:seed
         
-  4. Using Postman use the following Url with ***POST*** Request:   http://yashry/api/order  -***Make sure to clear the cache of the Postman***-
+  4. Using Postman use the following Url with ***POST*** Request:  /api/order  -***Make sure to clear the cache of the Postman***-
   
   5. **Parameters to be sent** (note that the parameters' __keys__ are case sensitive)
       1. Parameter **"order"** with the array of data you want to make an order with (eg. Key=order,  Value = [T-shirt,Pants,Jacket]):
       2. Parameter **"currency"** with the value or the desired currency USD or EGP (eg. Key=currency, Value = egp) 
     
-    Example:
+ - Example:
     
-    Parameters:
-     
-    { 
-        "order": "[T-shirt, T-shirt, Shoes, Jacket]",
-        "currency": usd
-    }
+ - Post /api/order 
+        
+         { 
+             "order": "[T-shirt, T-shirt, Shoes, Jacket]",
+             "currency": usd
+         }
        
-    The output of this order will be:
+  - The output of this order will be:
         
         "sub_total": 66.96,
         "taxes": 9.3744,
@@ -84,6 +84,6 @@ Write a program that can price a cart of products, accept multiple products, com
 1. The unit tests are missing
 2. The Discounts are made static not dynamic
 3. User Authentication
- 4. API Authentication
+4. API Authentication
 
 
