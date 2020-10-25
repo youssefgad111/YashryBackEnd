@@ -14,7 +14,6 @@ class CreateOrderProductTable extends Migration
     public function up()
     {
         Schema::create('order_product', function (Blueprint $table) {
-            $table->engine = "InnoDB";
             $table->increments('id');
             $table->Integer('order_id')->unsigned()->nullable();
             $table->Integer('product_id')->unsigned()->nullable();
@@ -22,11 +21,11 @@ class CreateOrderProductTable extends Migration
         });
         
         Schema::table('order_product', function($table) {     // link the pivot table by the orders table
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('order_product', function($table) {      // link the pivot table by the products table
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
