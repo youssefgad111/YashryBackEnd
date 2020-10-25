@@ -22,15 +22,17 @@ class Order extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $array_data = [
             'id' => $this->id,
             'sub_total' => $this->sub_total,
             'taxes' => $this->taxes,
             'total' => $this->total,
             'products' => ProductResource::collection($this->products),
-            'discounts' => new DiscountResource($this->discounts),
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+           
         ];
+        if($this->total_discounts != null){
+           $array_data['discounts'] =  new DiscountResource($this->discounts);
+        }
+        return $array_data;
     }
 }
