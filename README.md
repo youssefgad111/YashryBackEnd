@@ -38,10 +38,11 @@ Write a program that can price a cart of products, accept multiple products, com
     Example:
     
     Parameters:
-    
-        Key = order                 Value = [T-shirt, T-shirt, Shoes, Jacket]
-        Key = currency              Value = usd
-        
+     
+    { 
+        "order": "[T-shirt, T-shirt, Shoes, Jacket]",
+        "currency": usd
+    }
        
     The output of this order will be:
         
